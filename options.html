@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>カスタム検索ショートカット - 設定</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <h1>Custom Search Shortcut - 設定</h1>
+    <div id="add-shortcut" class="add-shortcut">
+        <div class="data-inputs">
+            <input type="text" id="shortcut-key" class="shortcut-key" placeholder="ショートカット">
+            <input type="text" id="shortcut-url" class="shortcut-url" placeholder="URL">
+            <input type="text" id="suggestion-text" class="suggestion-text" placeholder="サジェスト表示名">
+            <input type="text" id="note" class="note" placeholder="備考">
+        </div>
+        <div class="shortcut-button">
+            <button id="add-button">追加</button>
+        </div>
+    </div>
+    <table id="shortcuts-table" class="shortcuts-table">
+        <thead>
+            <tr>
+                <th class="isEnabled-column">有効</th>
+                <th class="key-column">ショートカット
+                    <input type="text" id="filter-key" placeholder="フィルター">
+                </th>
+                <th class="url-column">URL
+                    <input type="text" id="filter-url" placeholder="フィルター">
+                </th>
+                <th class="suggestion-column">サジェスト表示名
+                    <input type="text" id="filter-suggestion" placeholder="フィルター">
+                </th>
+                <th class="note-column">備考</th>
+                <th class="action-column">操作</th>
+            </tr>
+        </thead>
+        <tbody id="shortcuts-list">
+        </tbody>
+    </table>
+    <div id="pagination">
+        <button id="prev-button" disabled>前へ</button>
+        <span id="page-info"></span>
+        <button id="next-button">次へ</button>
+    </div>
+    <div id="import-export" class="import-export">
+        <button id="export-button">エクスポート</button>
+        <button id="import-button">インポート</button>
+        <input type="file" id="import-file" style="display:none;">
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Custom Search Shortcut",
+  "version": "1.0",
+  "description": "Register custom search shortcuts and use them directly from the search bar.",
+  "permissions": ["storage", "tabs", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      }
+    }
+  },
+  "options_page": "options.html",
+  "omnibox": {
+    "keyword": "sc"
+  }
+}

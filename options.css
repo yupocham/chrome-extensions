@@ -1,0 +1,195 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    color: #00796b;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #00796b;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #00796b;
+    text-align: left;
+}
+
+th {
+    background-color: #00796b;
+    color: white;
+}
+
+input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #00796b;
+    border-radius: 3px;
+}
+
+.add-shortcut {
+    margin-bottom: 50px;
+}
+
+.data-inputs {
+    display: flex;
+    column-gap: 7px;
+}
+
+.data-inputs input[type="text"] {
+    width: 25%;
+    height: 30px;
+}
+
+.shortcut-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+.shortcuts-table {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#pagination button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+#pagination button:disabled {
+    background-color: #b2dfdb;
+    cursor: default;
+}
+
+#page-info {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #00796b;
+}
+
+td button {
+    width: calc(50% - 4px);
+    background-color: #64b5f6;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #42a5f5;
+}
+
+td button.delete {
+    background-color: #e57373;
+}
+
+td button.delete:hover {
+    background-color: #d32f2f;
+}
+
+td button.cancel {
+    background-color: #adadad;
+}
+
+td button.cancel:hover {
+    background-color: #6d6d6d;
+}
+
+td input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 5px;
+    margin-bottom: 0;
+    border: 1px solid #00796b;
+    border-radius: 3px;
+}
+
+th input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #00796b;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.isEnabled-column, .isEnabled-cell {
+    width: 40px;
+}
+
+.key-column, .key-cell, .url-column, .url-cell, .suggestion-column, .suggestion-cell, .note-column, .note-cell {
+    width: 20%;
+    max-width: 200px;
+}
+
+/* .url-column, .url-cell {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; */
+}
+
+/* .suggestion-column, .suggestion-cell {
+    width: 25%;
+} */
+
+/* .note-column, .note-cell {
+    width: 25%;
+} */
+
+.action-column, .action-cell {
+    width: 100px;
+}
+
+.isEnabled-cell {
+    text-align: center;
+}
+
+.url-cell {
+    overflow-wrap: break-word;
+}
+
+.edit-button {
+    margin-right: 8px;
+}
+
+.import-export {
+    text-align: end;
+}
