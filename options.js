@@ -348,15 +348,51 @@ document.addEventListener('DOMContentLoaded', function () {
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                const shortcutsObj = JSON.parse(e.target.result);
-                chrome.storage.local.set({ shortcuts: shortcutsObj }, () => {
-                    currentPage = 1;
-                    loadShortcuts();
-                });
+                try {
+                    const shortcutsObj = JSON.parse(e.target.result);
+                    
+                    // データ形式の検証
+                    if (validateShortcuts(shortcutsObj)) {
+                        // データ形式が正しければ、ローカルストレージに上書き
+                        chrome.storage.local.set({ shortcuts: shortcutsObj }, () => {
+                            currentPage = 1;
+                            loadShortcuts();
+                            alert('インポートが完了しました。');
+                        });
+                    } else {
+                        alert('JSONデータの形式が正しくありません。');
+                    }
+                } catch (error) {
+                    alert('JSONの読み込みに失敗しました。正しい形式のファイルを選択してください。');
+                }
             };
             reader.readAsText(file);
         }
     });
+    
+    // ショートカットデータの形式を検証する関数
+    function validateShortcuts(data) {
+        // オブジェクトであるかを確認
+        if (typeof data !== 'object' || data === null || Array.isArray(data)) {
+            return false;
+        }
+    
+        // 各キーとその値を検証
+        for (const key in data) {
+            if (typeof key !== 'string') return false; // キーは文字列であるべき
+            const entry = data[key];
+    
+            // 値がオブジェクトであることを確認
+            if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) return false;
+    
+            // 必須フィールドの検証
+            if (typeof entry.url !== 'string') return false;
+            if (typeof entry.isEnabled !== 'boolean') return false;
+            if (typeof entry.suggestionText !== 'string') return false;
+            if (typeof entry.note !== 'string') return false;
+        }
+        return true;
+    }
 
     filterInputs.forEach( element => {
         element.addEventListener( 'input', () => {
